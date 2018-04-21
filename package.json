@@ -1,0 +1,44 @@
+{
+  "name": "phonyapi",
+  "version": "0.0.1",
+  "description": "Server to mock, track, or forward API calls",
+  "main": "server/index.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive test/integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtwebman/phonyapi.git"
+  },
+  "keywords": [
+    "mock",
+    "server",
+    "api",
+    "fake",
+    "forward",
+    "track"
+  ],
+  "author": "JT Turner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtwebman/phonyapi/issues"
+  },
+  "homepage": "https://github.com/jtwebman/phonyapi#readme",
+  "dependencies": {
+    "ajv": "^6.4.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "lodash": "^4.17.5",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chia": "0.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "supertest": "^3.0.0"
+  }
+}
