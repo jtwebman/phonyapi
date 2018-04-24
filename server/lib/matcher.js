@@ -3,15 +3,22 @@
 const uuidv4 = require('uuid/v4');
 const {find} = require('lodash');
 
+const validateMatch = require('./validate-match');
+
 const store = {
   matchers: []
 };
+
+function getAll() {
+  return store.matchers;
+}
 
 function addSingle(batchId, match) {
   const newMatch = Object.assign({}, match, {
     id: uuidv4(),
     batchId
   });
+  validateMatch(newMatch);
   store.matchers.unshift(newMatch);
   return newMatch;
 }
@@ -26,7 +33,6 @@ function add(matches) {
   }
   return addSingle(batchId, matches);
 }
-
 
 function clearIds(ids) {
   if (!Array.isArray(ids)) {
@@ -52,8 +58,14 @@ function clearBatchIds(batchIds) {
   }, []);
 }
 
+function reset() {
+  store.matchers = [];
+}
+
 module.exports = {
   add,
   clearIds,
-  clearBatchIds
+  clearBatchIds,
+  getAll,
+  reset
 };
